@@ -1,0 +1,167 @@
+/* Genel ayarlar */
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #333;
+    color: #fff;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+/* Ana menü */
+#mainMenu {
+    text-align: center;
+    margin-top: 30%;
+}
+
+#mainMenu button {
+
+    width: 50%;
+    padding: 10px 0;
+    margin: 10px;
+    font-size: 18px;
+}
+
+/* Oyun tahtası */
+.game-board {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background-color: #000;
+    border: 2px solid #fff;
+    margin: 0 auto;
+    flex:wrap;
+}
+
+.center-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.3;
+}
+
+.paddle {
+    position: absolute;
+    width: 10px;
+    height: 100px;
+    background-color: #fff;
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+/* Skor ve oyuncu isimleri */
+#player1Name, #player2Name, #player1Score, #player2Score {
+    color: #fff;
+    font-size: 20px;
+}
+
+/* Ayarlar */
+
+
+#settings input[type="color"] {
+    margin: 10px;
+    width: 50%;
+}
+
+/* Turnuva Bracket */
+#tournamentBracket {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#tournamentBracket input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #fff;
+    background-color: #333;
+    color: #fff;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+#results {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#results p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+
+.boxing{
+    background: fixed;
+    background-color: #3c4020;
+    border-radius: 25%;
+}
+
+.game-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+
+#settings {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    max-width: 12%;
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%; 
+    border-radius: 30%;
+}
+
+input[type="color"] {
+    width: 25%;
+    height: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover ve focus durumları */
+input[type="color"]:hover,
+input[type="color"]:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+
+.scoreBoardLocation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+
+
+#scoreBoard{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 25%;
+}

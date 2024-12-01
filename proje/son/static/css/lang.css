@@ -1,0 +1,37 @@
+#languageDisplay {
+    display: flex;
+    align-items: center; /* Dikey ortalama */
+}
+
+#languageDisplay img {
+    max-width: 50px; /* Bayrak genişliği, sabit bir değer */
+    max-height: 30px; /* Bayrak yüksekliği, sabit bir değer */
+    width: 40px; /* Genişlik otomatik ayarlanır */
+    height: 20px; /* Yükseklik otomatik ayarlanır */
+    margin-right: 5px; /* Bayrak ile dil seçeneği arasında boşluk */
+}
+
+#languageSelector {
+    display: flex; /* Seçim kutusunu gizle */
+}
+
+/* Ekstra stil ayarları */
+@media (max-width: 600px) {
+    #languageDisplay img {
+        max-width: 40px; /* Küçük ekranlarda bayrak genişliği */
+        max-height: 25px; /* Küçük ekranlarda bayrak yüksekliği */
+    }
+    #g_conti {
+        display: none;
+      }
+}
+
+@media (max-width: 400px) {
+    #languageDisplay img {
+        max-width: 30px; /* Daha küçük ekranlarda bayrak genişliği */
+        max-height: 20px; /* Daha küçük ekranlarda bayrak yüksekliği */
+    }
+    #g_conti {
+        display: none;
+      }
+}
