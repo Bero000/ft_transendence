@@ -38,5 +38,7 @@
     "player-3": "3. Oyuncu",
     "t-player-1": "1. Oyuncu:",
     "t-player-2": "2. Oyuncu:",
-    "t-player-3": "3. Oyuncu:"
+    "t-player-3": "3. Oyuncu:",
+    "scoreHeader": "Puanınız",
+    "score": "Puan:"
 }

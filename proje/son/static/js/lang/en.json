@@ -38,5 +38,7 @@
     "player-3": "3rd Player",
     "t-player-1": "1st Player:",
     "t-player-2": "2nd Player:",
-    "t-player-3": "3rd Player:"
+    "t-player-3": "3rd Player:",
+    "scoreHeader": "Your Score",
+    "score": "Score:"
 }

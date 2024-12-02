@@ -38,5 +38,8 @@
     "player-3": "玩家3",
     "t-player-1": "第一个玩家:",
     "t-player-2": "第二个玩家:",
-    "t-player-3": "第三个玩家:"
+    "t-player-3": "第三个玩家:",
+    "scoreHeader": "您的分数",
+    "score": "分数:"
+
 }
