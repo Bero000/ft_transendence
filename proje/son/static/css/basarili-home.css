@@ -1,0 +1,174 @@
+html,
+body {
+
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+header {
+
+    background: linear-gradient(to right, #5ce3ed, #0df3b2);
+
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    padding: 20px 0;
+    text-shadow: #f30d0d;
+}
+
+
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.nav-link {
+    color: white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    margin: 20px;
+    border: 1px solid rgb(104, 69, 69);
+    border-radius: 50px;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28155,155,155,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background: linear-gradient(to right, #5ce3ed, #0df3b2);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        padding: 15px;
+    }
+    #g_conti {
+        display: none;
+      }
+}
+
+
+#profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.profile-box {
+    width: 7dvh;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(128, 241, 171, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 50%;
+
+}
+
+.profile-box img {
+    border-radius: 50%;
+    margin-top: 15px;
+
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Sayfa içeriğinden arkada olacak şekilde */
+    overflow: hidden;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Videonun ekranı kaplamasını sağlar */
+    filter: blur(3px);
+    /* Videoyu biraz bulanıklaştırarak arka planda daha az dikkat çeker */
+}
+
+/* Sayfa İçeriği */
+#main-container {
+    position: relative;
+    z-index: 1;
+    /* İçeriğin videonun önünde görünmesini sağlar */
+}
+
+.card {
+    background-color: rgba(128, 241, 171, 0.85);
+    /* Kartın opaklığını azaltarak videonun etkisini gösterir */
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    /* Gölge ekleyerek derinlik kazandırır */
+    margin-top: -30%
+}
+
+h2 {
+    color: #495057;
+    font-size: 1.5rem;
+}
+
+#login_button {
+    background-color: #16b4b1;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+#login_button:hover {
+    background-color: #068854;
+}
+
+.btn {
+    background-color: #9ca938;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
