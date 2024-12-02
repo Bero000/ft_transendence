@@ -261,6 +261,11 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key === "s") {
     isKeySPressed = true;
   }
+  if (e.key === "W") {
+    isKeyWPressed = true;
+  } else if (e.key === "S") {
+    isKeySPressed = true;
+  }
   if (e.key === "p")
     togglePause();
   if (e.key === "r")
@@ -283,6 +288,11 @@ document.addEventListener("keyup", (e) => {
   } else if (e.key === "s") {
     isKeySPressed = false;
   }
+  if (e.key === "W") {
+    isKeyWPressed = false;
+  } else if (e.key === "S") {
+    isKeySPressed = false;
+  }
 
   if (!isSinglePlayer) {
     if (e.key === "ArrowUp") {
@@ -293,62 +303,37 @@ document.addEventListener("keyup", (e) => {
   }
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////
-// function movePaddles() {
-//   const paddle1 = document.getElementById("paddle1");
-//   const paddle2 = document.getElementById("paddle2");
-
-//   if (isGamePaused) return;
-//   // Paddle1 hareketi
-//   if (isKeyWPressed && paddle1Y > minPaddleY) {
-//     paddle1Y -= maxPaddleSpeed; // Yukarı hareket et
-//   } else if (isKeySPressed && paddle1Y < maxPaddleY) {
-//     paddle1Y += maxPaddleSpeed; // Aşağı hareket et
-//   }
-
-//   // Paddle2 hareketi (tek oyunculu değilse)
-//   if (!isSinglePlayer) {
-//     if (isKeyArrowUpPressed && paddle2Y > minPaddleY) {
-//       paddle2Y -= maxPaddleSpeed; // Yukarı hareket et
-//     } else if (isKeyArrowDownPressed && paddle2Y < maxPaddleY) {
-//       paddle2Y += maxPaddleSpeed; // Aşağı hareket et
-//     }
-//   }
-
-//   // Paddle konumunu güncelle
-//   paddle1.style.top = paddle1Y + "px";
-//   paddle2.style.top = paddle2Y + "px";
-// }
 function movePaddles() {
-    const paddle1 = document.getElementById("paddle1");
-    const paddle2 = document.getElementById("paddle2");
-  
-    if (isGamePaused) return;
-  
-    // Paddle1 hareketi
-    if (isKeyWPressed && paddle1Y > minPaddleY) {
-      paddle1Y -= maxPaddleSpeed; // Yukarı hareket et
-    } else if (isKeySPressed && paddle1Y < maxPaddleY) {
-      paddle1Y += maxPaddleSpeed; // Aşağı hareket et
-    }
-  
-    // Paddle2 hareketi (tek oyunculu değilse)
-    if (!isSinglePlayer) {
-      if (isKeyArrowUpPressed && paddle2Y > minPaddleY) {
-        paddle2Y -= maxPaddleSpeed; // Yukarı hareket et
-      } else if (isKeyArrowDownPressed && paddle2Y < maxPaddleY) {
-        paddle2Y += maxPaddleSpeed; // Aşağı hareket et
-      }
-    }
-  
-    // Paddle konumunu sınırla
-    paddle1Y = Math.max(minPaddleY, Math.min(paddle1Y, maxPaddleY));
-    paddle2Y = Math.max(minPaddleY, Math.min(paddle2Y, maxPaddleY));
-  
-    // Paddle konumunu güncelle
-    paddle1.style.top = paddle1Y + "px";
-    paddle2.style.top = paddle2Y + "px";
+  const paddle1 = document.getElementById("paddle1");
+  const paddle2 = document.getElementById("paddle2");
+
+  if (isGamePaused) return;
+
+  // Paddle1 hareketi
+  if (isKeyWPressed && paddle1Y > minPaddleY) {
+    paddle1Y -= maxPaddleSpeed; // Yukarı hareket et
+  } else if (isKeySPressed && paddle1Y < maxPaddleY) {
+    paddle1Y += maxPaddleSpeed; // Aşağı hareket et
   }
-  
+
+  // Paddle2 hareketi (tek oyunculu değilse)
+  if (!isSinglePlayer) {
+    if (isKeyArrowUpPressed && paddle2Y > minPaddleY) {
+      paddle2Y -= maxPaddleSpeed; // Yukarı hareket et
+    } else if (isKeyArrowDownPressed && paddle2Y < maxPaddleY) {
+      paddle2Y += maxPaddleSpeed; // Aşağı hareket et
+    }
+  }
+
+  // Paddle konumunu sınırla
+  paddle1Y = Math.max(minPaddleY, Math.min(paddle1Y, maxPaddleY));
+  paddle2Y = Math.max(minPaddleY, Math.min(paddle2Y, maxPaddleY));
+
+  // Paddle konumunu güncelle
+  paddle1.style.top = paddle1Y + "px";
+  paddle2.style.top = paddle2Y + "px";
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 function updateGame() {
@@ -427,28 +412,28 @@ function updateGame() {
 //   paddle2.style.top = paddle2Y + "px";
 // }
 function moveComputerPaddle() {
-    const paddleHeight = 100;
-    const paddle2 = document.getElementById("paddle2"); // Paddle2 öğesini burada tekrar seçiyoruz
-    if (!paddle2) {
-      console.error("Paddle2 element is not found");
-      return; // Eğer paddle2 yoksa fonksiyonu sonlandır
-    }
-  
-    const paddleCenter = paddle2Y + paddleHeight / 2; // Paddle'ın merkez noktası
-    const speed = 10; // AI paddle'ın hızı
-    if (paddleCenter < ballY - 10) {
-      paddle2Y += speed;
-    } else if (paddleCenter > ballY + 10) {
-      paddle2Y -= speed;
-    }
-  
-    // Paddle'ın y koordinatını sınırlama
-    paddle2Y = Math.max(minPaddleY, Math.min(paddle2Y, maxPaddleY));
-  
-    // Paddle'ın stilini güncelle
-    paddle2.style.top = paddle2Y + "px";
+  const paddleHeight = 100;
+  const paddle2 = document.getElementById("paddle2"); // Paddle2 öğesini burada tekrar seçiyoruz
+  if (!paddle2) {
+    console.error("Paddle2 element is not found");
+    return; // Eğer paddle2 yoksa fonksiyonu sonlandır
   }
-  
+
+  const paddleCenter = paddle2Y + paddleHeight / 2; // Paddle'ın merkez noktası
+  const speed = 10; // AI paddle'ın hızı
+  if (paddleCenter < ballY - 10) {
+    paddle2Y += speed;
+  } else if (paddleCenter > ballY + 10) {
+    paddle2Y -= speed;
+  }
+
+  // Paddle'ın y koordinatını sınırlama
+  paddle2Y = Math.max(minPaddleY, Math.min(paddle2Y, maxPaddleY));
+
+  // Paddle'ın stilini güncelle
+  paddle2.style.top = paddle2Y + "px";
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 function resetBall() {
   const gameBoard = document.querySelector(".game-board");
@@ -506,6 +491,7 @@ function handleMatchEnd() {
   let player1Name = players[0];
   let player2Name = players[1];
   let player3Name = players[2];
+  let winnerp = "";
 
   clearInterval(gameInterval);
   if (currentMatch === 1) {
@@ -516,28 +502,28 @@ function handleMatchEnd() {
     resetGame();
     alert(
       winnerp +
-        " won the first match! Next match: " +
-        winner1 +
-        " vs " +
-        player3Name
+      " won the first match! Next match: " +
+      winnerp +
+      " vs " +
+      player3Name
     );
-    document.getElementById("player1Name").innerHTML = winner1;
+    document.getElementById("player1Name").innerHTML = winnerp;
     document.getElementById("player2Name").innerHTML = player3Name;
     startGame();
   } else if (currentMatch === 2) {
-    const winner = player1Score === 5 ? winner1 : player3Name;
-    const loser = player1Score === 5 ? player3Name : winner1;
+    const winner = player1Score === 5 ? winnerp : player3Name;
+    const loser = player1Score === 5 ? player3Name : winnerp;
     winner1 = winner; // Şampiyonu kaydet
     losers.push(loser); // Kaybedeni listeye ekle
     currentMatch++;
     resetGame();
     alert(
-      winner +
-        " is the champion! Next match: " +
-        losers[0] +
-        " vs " +
-        losers[1] +
-        " for 2nd place."
+      winner1 +
+      " is the champion! Next match: " +
+      losers[0] +
+      " vs " +
+      losers[1] +
+      " for 2nd place."
     );
     player1Name = losers[0];
     player2Name = losers[1];
@@ -547,11 +533,11 @@ function handleMatchEnd() {
     startGame();
   } else if (currentMatch === 3) {
     // Son maç: İki kaybeden (losers[0] vs losers[1])
-    const [loser1, loser2] = losers;
-    const secondPlace = player1Score === 5 ? loser1 : loser2;
-    const thirdPlace = player1Score === 5 ? loser2 : loser1;
-    
-    displayResults(secondPlace, thirdPlace);
+    // const [loser1, loser2] = losers;
+    const secondPlace = player1Score === 5 ? player1Name : player2Name;
+    const thirdPlace = player1Score === 5 ? player2Name : player1Name;
+    const champion = winner1;
+    displayResults(champion, secondPlace, thirdPlace);
     alert(
       "Winner: " + winner1 + ", 2nd: " + secondPlace + ", 3rd: " + thirdPlace
     );
@@ -593,7 +579,7 @@ function getCookie(name) {
 
 async function sendMatchResult(winner) {
   const csrftoken = getCookie("csrf_token");
-  const matchResult = { winner};
+  const matchResult = { winner };
   console.log("Giden maç sonucu:", matchResult);
 
   try {
