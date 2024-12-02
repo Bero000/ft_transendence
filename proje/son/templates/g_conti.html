@@ -14,15 +14,16 @@
       <div class="container mx-auto p-4">
         <h1 class="boxing text-4xl font-bold text-center mb-8" data-i18n="pingpong-mode">FarkindePong Oyun Modları</h1>
         <div id="mainMenu" class="d-flex flex-column align-items-center gap-4">
-          <button id="singlePlayer" class="btn btn-primary btn-lg px-5 py-3 btn-3d" data-ref='/game-single' data-i18n="single-player">
+          <button id="singlePlayer" class="btn btn-lg px-5 py-3 btn-3d text-dark" data-ref='/game-single' data-i18n="single-player">
             Tek kişilik
           </button>
-          <button id="tournamentMode" class="btn btn-success btn-lg px-5 py-3 btn-3d" data-i18n="tournament">
+          <button id="tournamentMode" class="btn btn-lg px-5 py-3 btn-3d text-dark" data-i18n="tournament">
             Turnuva modu
           </button>
         </div>        
       </div>
     </div>
+  </div>
     <script src="{% static 'js/game.js' %}?v=2" ></script>
     <script src="{% static 'js/main.js' %}?v=2" ></script>
   </body>

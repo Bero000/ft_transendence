@@ -33,7 +33,7 @@ button {
     background-color: #000;
     border: 2px solid #fff;
     margin: 0 auto;
-    flex:wrap;
+    flex: wrap;
 }
 
 .center-line {
@@ -62,7 +62,10 @@ button {
 }
 
 /* Skor ve oyuncu isimleri */
-#player1Name, #player2Name, #player1Score, #player2Score {
+#player1Name,
+#player2Name,
+#player1Score,
+#player2Score {
     color: #fff;
     font-size: 20px;
 }
@@ -102,7 +105,7 @@ button {
 }
 
 
-.boxing{
+.boxing {
     background: fixed;
     background-color: #3c4020;
     border-radius: 25%;
@@ -128,7 +131,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%; 
+    width: 30%;
     border-radius: 30%;
 }
 
@@ -151,7 +154,7 @@ input[type="color"]:focus {
 }
 
 
-.scoreBoardLocation{
+.scoreBoardLocation {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,21 +164,25 @@ input[type="color"]:focus {
 
 
 
-#scoreBoard{
+#scoreBoard {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 25%;
 }
 
+.btn {
+    background-color: #b5b312;
+}
 
-
-/* .btn-3d {
+.btn-3d {
     position: relative;
     transition: all 0.2s ease;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: bold;
     overflow: hidden;
-    box-shadow: 0 6px 0 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 6px 0 0 rgba(255, 255, 255, 0.2);
+
 }
 
 .btn-3d::before {
@@ -185,18 +192,20 @@ input[type="color"]:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+    background: linear-gradient(rgba(156, 209, 13, 0.1), rgba(167, 247, 9, 0));
     transition: all 0.2s ease;
 }
 
 .btn-3d:hover {
     transform: translateY(-3px);
-    box-shadow: 0 9px 0 0 rgba(0,0,0,0.2);
+    box-shadow: 0 9px 0 0 rgba(0, 0, 0, 0.2);
 }
 
 .btn-3d:active {
     transform: translateY(3px);
-    box-shadow: 0 3px 0 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.2); */
+    color: white;
+    box-shadow: 0 3px 0 0 rgba(240, 238, 238, 0.2);
 }
 
 .btn-3d:hover::before {
@@ -222,24 +231,7 @@ input[type="color"]:focus {
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
     opacity: .1;
-} */
-
-.btn-3d {
-    position: relative;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    font-weight: bold;
-    box-shadow: 0 6px 0 0 rgba(0,0,0,0.1);
-}
-
-.btn-3d:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 0 0 rgba(0,0,0,0.1);
-}
-
-.btn-3d:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 0 rgba(0,0,0,0.1);
+    background-color: red;
 }
 
 @media (max-width: 768px) {
@@ -247,4 +239,8 @@ input[type="color"]:focus {
         font-size: 1rem;
         padding: 0.5rem 1.5rem !important;
     }
+}
+
+.btn-3d:hover{
+    color: white !important;
 }

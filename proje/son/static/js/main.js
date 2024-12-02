@@ -166,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPage(currentPage);
     bindMenuLinks();
 });
-// burada sayfa gmae-single'dan başka yere tıklanınca sıfırlamayı dene
 //
 //
 // Geçerli dili tarayıcı yerel depolamasında sakla

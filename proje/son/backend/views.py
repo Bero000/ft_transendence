@@ -48,6 +48,7 @@ class SaveMatchResultView(View):
         except Exception as e:
             return JsonResponse({"success": False, "error": str(e)}, status=500)
 
+
 def load_page(request, page=None):
     if page is None:
         page = request.GET.get('page', 'base')  # Default to 'base' page
