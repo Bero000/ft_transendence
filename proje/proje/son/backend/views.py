@@ -93,7 +93,6 @@ def callback_42(request):
             'redirect_uri': settings.REDIRECT_URI,
         }).json()
 
-
         access_token = token_response.get("access_token")
         if access_token:
             user_info = requests.get('https://api.intra.42.fr/v2/me', headers={'Authorization': f'Bearer {access_token}'}).json()
@@ -106,9 +105,12 @@ def callback_42(request):
                 first_name = user_info.get('first_name', 'DefaultFirstName')  # Default value
                 last_name = user_info.get('last_name', 'DefaultLastName')  # Default value
 
+                # Get profile image URL
+                profile_image = user_info.get('image_url', '/static/images/nah.jpeg')  # Default to an empty string if not available
+
                 user, created = CustomUser.objects.get_or_create(
                     username=username,
-                    defaults={'email': email, 'first_name': first_name, 'last_name': last_name}
+                    defaults={'email': email, 'first_name': first_name, 'last_name': last_name, 'image': profile_image}
                 )
 
                 if created:
@@ -116,11 +118,13 @@ def callback_42(request):
                     user.email = email
                     user.first_name = first_name
                     user.last_name = last_name
+                    user.image = profile_image
                 else:
                     # Update existing user
                     user.email = email
                     user.first_name = first_name
                     user.last_name = last_name
+                    user.image = profile_image
 
                 user.access_token = access_token
                 user.refresh_token = token_response.get("refresh_token")

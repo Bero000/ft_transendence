@@ -1,5 +1,5 @@
 # Dockerfile
-FROM python:3.11
+FROM python:3.10.12
 
 ENV PIP_ROOT_USER_ACTION=ignore \
     PYTHONUNBUFFERED=1 \
@@ -12,10 +12,10 @@ COPY requirements.txt /proje/requirements.txt
 RUN pip install --upgrade pip && pip install -r /proje/requirements.txt
 
 # After the packages are installed, copy the rest of your application
-COPY son /son
+COPY son /proje/son
 
-RUN chmod +x /son/start.sh
+RUN chmod +x /proje/son/start.sh
 
 EXPOSE 8001
 
-CMD [ "sh", "/son/start.sh" ]
+CMD [ "sh", "/proje/son/start.sh" ]

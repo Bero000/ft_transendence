@@ -30,12 +30,12 @@
                 <p><strong data-i18n="name">Adınız:</strong> {{ user.first_name }} {{ user.last_name }}</p>
                 <p><strong data-i18n="nickname">Kullanıcı Adınız:</strong> {{ user.username }}</p>
                 <p><strong data-i18n="email">E-posta Adresiniz:</strong> {{ user.email }}</p>
-
-                {% if user.image_url %}
-                    <img src="{user.image_url}" alt="UserImage"/>
-                {% endif %}
-                <h3 data-i18n="scoreHeader">Puanınız</h3>
                 <p><strong data-i18n="score">Puan:</strong> {{ user.score }}</p>
+                {% if user.image %}
+                    <img src="{{ user.image }}" alt="Profil Fotoğrafı" style="width: 150px; height: 150px; border-radius: 50%;">
+                {% else %}
+                    <img src="/static/images/nah.jpeg" alt="Varsayılan Profil Fotoğrafı" style="width: 150px; height: 150px; border-radius: 50%;">
+                {% endif %}
 
             </div>
         </section>
