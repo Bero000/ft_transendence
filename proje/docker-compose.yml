@@ -35,7 +35,7 @@ services:
       - staticfiles:/son/staticfiles
       - ssl_data:/etc/nginx/ssl
     ports:
-      - 443:443
+      - 8080:8080
     depends_on:
       - web
     networks:

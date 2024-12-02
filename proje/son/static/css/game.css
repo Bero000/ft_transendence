@@ -249,3 +249,94 @@ input[type="color"]:focus {
 .btn-3d:hover{
     color: white !important;
 }
+
+
+
+/******************************* bilgilendirme kartı *******************************/
+
+.card { 
+    position: fixed; 
+    bottom: 10px;    
+    right: 10px;     
+    width: 30%;      
+    max-width: 300px; 
+    height: 30%;     
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 70%;         
+    max-width: 570px;    
+    height: 200px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #f0ff1c 0%, #85dc02 100%);
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #f0ff1c 0%, #85dc02 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+
+.card:hover::after {
+    filter: blur(30px);
+}
+
+.card:hover::before {
+    transform: rotate(-180deg) scaleX(1.34) scaleY(0.77);
+}
+
+.heading {
+    font-size: 12px; /* Varsayılan yazı boyutu */
+    font-weight: 700;
+}
+
+.card p:not(.heading) {
+    font-size: 14px;
+}
+
+.card p:last-child {
+    color: #e81cff;
+    font-weight: 600;
+}
+
+/* Responsive Ayarlar */
+@media (min-width: 768px) {
+    .card {
+        width: 550px; /* Daha geniş ekranlarda tam genişlik */
+        height: 190px;
+    }
+    .card::before {
+        width: 570px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 16px; /* Küçük ekranlar için yazı boyutu */
+    }
+
+    .card p:not(.heading) {
+        font-size: 12px; /* Paragraf boyutunu küçült */
+    }
+}

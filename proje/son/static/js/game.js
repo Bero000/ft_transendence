@@ -261,6 +261,31 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key === "s") {
     isKeySPressed = true;
   }
+  if (e.key === "p")
+    togglePause();
+  if (e.key === "r")
+    resetGame();
+
+  if (e.key === "1")
+  {
+    ballSpeedX = 6;
+    ballSpeedY = 6;
+  }
+  if (e.key === "2")
+  {
+    ballSpeedX = 7;
+    ballSpeedY = 7;
+  }
+  if (e.key === "3")
+  {
+    ballSpeedX = 9;
+    ballSpeedY = 9;
+  }
+  if (e.key === "0")
+  {
+    ballSpeedX = 5;
+    ballSpeedY = 5;
+  }
 
   if (!isSinglePlayer) {
     if (e.key === "ArrowUp") {
