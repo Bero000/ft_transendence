@@ -13,6 +13,9 @@
 
 #languageSelector {
     display: flex; /* Seçim kutusunu gizle */
+    border-radius: 20px 100px;
+    align-items: center;
+    text-align: center;
 }
 
 /* Ekstra stil ayarları */
@@ -35,3 +38,4 @@
         display: none;
       }
 }
+
