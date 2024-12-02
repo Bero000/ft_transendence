@@ -30,11 +30,16 @@ button {
     position: relative;
     width: 800px;
     height: 400px;
-    background-color: #000;
     border: 2px solid #fff;
     margin: 0 auto;
     flex: wrap;
+    background-image: url('../images/mesut.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
 }
+
 
 .center-line {
     position: absolute;
