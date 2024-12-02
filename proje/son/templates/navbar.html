@@ -1,0 +1,105 @@
+<!-- tr/navbar.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA Web Sitesi</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lang.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+  </head>
+  <body>
+    <header id="navbar-container">
+      <div id="header_content">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="#" style="font-size:30px;">Farkinde V2</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <!-- Ana sayfa, İntra giriş sadece giriş yapmadan gösterilir -->
+              {% if not user.is_authenticated %}
+                <li class="nav-item">
+                  <button class="nav-link" data-ref="/base" id="base" data-i18n="home-page">Ana Sayfa</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" data-ref="/login_with_42" id="login_with_42" data-i18n="login-with-42">İntra Giriş</button>
+                </li>
+              {% endif %}
+
+              <!-- Giriş yapıldıysa, Profil, Farkinde Pong ve Çıkış seçenekleri görünür -->
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <button class="nav-link" data-ref="/base" id="base" data-i18n="home-page">Ana Sayfa</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" data-ref="/profile" id="profile" data-i18n="profile-page">Profil</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link d-xl-block d-lg-block" data-ref="/g_conti" id="g_conti">Farkinde Pong</button>
+                </li>
+                <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                    {% csrf_token %}
+                </form>
+                <li class="nav-item">
+                  <button class="nav-link" onclick="document.getElementById('logout-form').submit();" data-i18n="logout">Çıkış Yap</button>
+                </li>
+              {% endif %}
+
+              <!-- Dil seçici -->
+              <li class="nav-item">
+                <div id="languageSelectorContainer">
+                  <li>
+                    <div id="languageDisplay">
+                      <img src="{% static 'images/flags/tr.png' %}" alt="Turkish" width="30" height="20"> <!-- Varsayılan bayrak -->
+                    </div>
+                  </li>
+                  <li>
+                  <select id="languageSelector">
+                    <option value="en" data-i18n="en">İngilizce</option>
+                    <option value="de" data-i18n="de">Almanca</option>
+                    <option value="fr" data-i18n="fr">Fransızca</option>
+                    <option value="es" data-i18n="es">İspanyolca</option>
+                    <option value="ja" data-i18n="ja">Japonca</option>
+                    <option value="zh" data-i18n="zh">Çince</option>
+                    <option value="tr" selected data-i18n="tr">Türkçe</option>
+                  </select> 
+                  </li>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <script>
+      $(document).ready(function () {
+        var csrfToken = '{{ csrf_token }}'; // CSRF token'ı bir değişken olarak tanımlayın
+    
+        $('#logout').click(function () {
+          $.ajax({
+            url: '/logout/', // Çıkış URL'si
+            type: 'POST', // POST isteği
+            data: {
+              csrfmiddlewaretoken: csrfToken // CSRF koruması için token
+            },
+            success: function (response) {
+              window.location.href = '/' // Ana sayfaya yönlendirme
+            },
+            error: function (xhr, status, error) {
+              alert('Çıkış yaparken bir hata oluştu.')
+            }
+          });
+        });
+      });
+    </script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
